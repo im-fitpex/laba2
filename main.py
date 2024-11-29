@@ -48,3 +48,24 @@ class TestPhoneNumberValidation(unittest.TestCase):
         ]
         for number in invalid_numbers:
             self.assertFalse(validate_phone_number(number))
+
+
+if __name__ == '__main__':
+    # Пример проверки телефона
+    print(validate_phone_number("+7 (123) 456-78-90"))  # True
+    print(validate_phone_number("81234567890"))  # True
+    print(validate_phone_number("+79999999999"))  # True
+    print(validate_phone_number("89999999999"))  # True
+
+    # Пример поиска номеров по URL
+    url = 'https://example.com'
+    phone_numbers = find_phone_numbers_in_url(url)
+    print(phone_numbers)
+
+    # Пример поиска номеров в файле
+    filename = 'file.txt'
+    phone_numbers_in_file = find_phone_numbers_in_file(filename)
+    print(phone_numbers_in_file)
+
+    # Запуск unit-тестов
+    unittest.main(argv=[''], exit=False)
