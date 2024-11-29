@@ -16,3 +16,11 @@ def find_phone_numbers_in_url(url):
         pattern = r"(?:\+7|8)\d{10}$|(?:\+7|8)\s?\(?\d{3}\)?\s?\d{3}-\d{2}-\d{2}"
         return re.findall(pattern, response.text)
     return []
+
+# Функция для поиска номеров телефонов в загруженном файле
+def find_phone_numbers_in_file(filename):
+    with open(filename, 'r') as file:
+        content = file.read()
+        # Обновленное регулярное выражение для поиска в файле
+        pattern = r"(?:\+7|8)\d{10}|(?:\+7|8)\s?\(?\d{3}\)?\s?\d{3}-\d{2}-\d{2}"
+        return re.findall(pattern, content)
