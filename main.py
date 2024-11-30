@@ -2,7 +2,6 @@ import re
 import requests
 import unittest
 
-
 # Функция для проверки номера телефона
 def validate_phone_number(phone_number):
     # Регулярное выражение для поддержки номеров без разделителей
@@ -45,6 +44,7 @@ if __name__ == '__main__':
     print("Выберите опцию:")
     print("1. Ввести номера вручную")
     print("2. Проверить номера из файла")
+    print("3. Провести UNIT тесты")
     choice = input("Введите ваш выбор (1 или 2): ")
     if choice == '1':
         print("Введите номера телефонов для проверки. Оставьте строку пустой, чтобы завершить ввод.")
@@ -68,8 +68,7 @@ if __name__ == '__main__':
                 print("В файле не найдено номеров телефонов.")
         except FileNotFoundError:
             print("Файл не найден. Проверьте путь и попробуйте снова.")
+    elif choice == '3':
+        unittest.main(argv=[''], exit=False)
     else:
         print("Некорректный выбор. Попробуйте снова.")
-
-    # Запуск unit-тестов
-    unittest.main(argv=[''], exit=False)
